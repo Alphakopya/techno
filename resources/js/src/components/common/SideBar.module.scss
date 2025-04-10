@@ -1,0 +1,279 @@
+// resources/js/src/components/Admin/Sidebar.module.scss
+@import '../../../../sass/variables';
+
+:local {
+    .sidebar {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        padding: 0 5px;
+        background-color: $white-color;
+        border-right: 1px solid #ccc;
+        overflow: hidden;
+        transition: width 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column; // Added to push user section to bottom
+    
+        &.close {
+          padding: 0 5px;
+          width: 60px;
+          min-width: 0;
+    
+          .label, .subMenuLink, .userInfo {
+            opacity: 0;
+          }
+        }
+      }
+    
+      .sidebarList {
+        list-style: none;
+        padding: 0;
+        flex-grow: 1; // Ensures list takes up available space
+      }
+  
+    .sidebarItem {
+      margin: 10px 0;
+      white-space: nowrap;
+    }
+  
+    .toggleItem {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+  
+      .toggleBtn {
+        background-color: $white-color;
+        border: none;
+        cursor: pointer;
+        color: $primary-color;
+        padding: 0.5em;
+        margin-right: 3px;
+        width: 50px;
+        font-size: 24px;
+        transition: all 0.15s ease-in-out;
+  
+        &:hover {
+          color: $accent-color;
+          background-color: transparent;
+        }
+      }
+    }
+  
+    .sidebarLink {
+      border-radius: 0.5em;
+      padding: 0.5em;
+      text-decoration: none;
+      color: $primary-color;
+      display: flex;
+      align-items: center;
+      transition: color 0.15s ease-in-out;
+  
+      &:hover {
+        color: $accent-color;
+        text-decoration: none;
+      }
+  
+      &.active {
+        color: $primary-color;
+        border-right: 4px solid $accent-color;
+        border-bottom: 1px solid $accent-color;
+        background-color: rgba(255, 255, 255, 0.1);
+  
+        .icon {
+          color: $primary-color;
+        }
+      }
+    }
+  
+    .dropdownBtn {
+      border-radius: 0.5em;
+      padding: 0.5em;
+      color: $primary-color;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-align: left;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+        
+      &.active {
+        color: $primary-color;
+        border-right: 4px solid $accent-color;
+        border-bottom: 1px solid $accent-color;
+        background-color: rgba(255, 255, 255, 0.1);
+  
+        .icon {
+          color: $primary-color;
+        }
+      }
+      &:hover {
+        color: $accent-color;
+      }
+  
+      &.rotate {
+        .arrow {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  
+    .icon {
+      flex-shrink: 0;
+      font-size: 24px;
+      color: $primary-color;
+      margin-right: 20px;
+    }
+  
+    .label {
+      width: 100%;
+      opacity: 1;
+      transition: opacity 0.15s ease-in-out;
+    }
+  
+    .arrow {
+      margin-left: auto;
+      font-size: 24px;
+      transition: transform 0.15s ease-in-out;
+    }
+  
+    .subMenu {
+      list-style: none;
+      padding-left: 50px;
+      transition: max-height 0.15s ease-in-out, opacity 0.15s ease-in-out;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+  
+      &.show {
+        opacity: 1;
+        max-height: 200px; // Adjust based on content
+      }
+  
+      .subMenuLink {
+        display: block;
+        padding: 0.5em;
+        color: $primary-color;
+        text-decoration: none;
+        opacity: 1;
+        transition: all 0.15s ease-in-out, opacity 0.15s ease-in-out;
+        
+        
+        &:hover {
+          color: $accent-color;
+        }
+  
+        &.active {
+          color: $accent-color;
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+    
+    .userSection {
+        margin-top: auto; // Pushes to bottom
+        padding: 0 3px;
+        padding-bottom: 10px;
+      }
+    
+      .userBtn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0.6em;
+        background-color: transparent;
+        border: none;
+        border-radius: 0.5em;
+        color: $primary-color;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+    
+        &:hover {
+          background-color: $hover;
+        }
+    
+        &.active {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    
+      .userIcon {
+        font-size: 24px;
+        color: $primary-color;
+        margin-right: 20px;
+        flex-shrink: 0;
+      }
+    
+      .userInfo {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+        text-align: left;
+        opacity: 1;
+        transition: opacity 0.15s ease-in-out;
+      }
+    
+      .userDetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .userName {
+        font-size: 14px;
+        font-weight: 500;
+        color: $primary-color;
+        white-space: nowrap;
+      }
+    
+      .userRole {
+        font-size: 12px;
+        color: $primary-color;
+      }
+    
+      .userArrow {
+        margin-left: auto;
+        font-size: 24px;
+      }
+    
+      .userDropup {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: $white-color;
+        position: absolute;
+        bottom: 60px; // Position above user button
+        left: 10px;
+        right: 10px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.15s ease-in-out, opacity 0.15s ease-in-out;
+    
+        &.show {
+          max-height: 200px; // Adjust based on content
+          opacity: 1;
+        }
+      }
+    
+      .dropupLink {
+        display: block;
+        padding: 0.85em;
+        color: $primary-color;
+        text-decoration: none;
+        transition: background-color 0.15s ease-in-out;
+    
+        &:hover {
+          background-color: $accent-color;
+          text-decoration: none;
+        }
+      }
+
+    @media only screen and (max-width: 1439px) {
+      .sidebar {
+        display: none;
+      }
+    }
+  }

@@ -1,0 +1,128 @@
+@import "variables";
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: $navbar-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $navbar-height;
+  z-index: 1000;
+  transition: $transition;
+
+  &-sticky {
+    padding: 1rem 5%;
+    background: $navbar-bg-sticky;
+    box-shadow: $navbar-shadow;
+  }
+
+  &-brand {
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+
+      &:hover,
+      &:focus {
+        color: $accent-color;
+        outline: none;
+      }
+    }
+  }
+
+  &-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: $primary-color;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &-menu {
+    &-desktop {
+      display: flex;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      position: absolute;
+      top: $navbar-height;
+      left: 0;
+      background: $navbar-bg-sticky;
+      box-shadow: $navbar-shadow;
+    }
+  }
+
+  &-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+    }
+  }
+
+
+  &-link {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: $transition;
+
+    &:hover {
+      color: $accent-color;
+      background: rgba(0, 0, 0, 0.05);
+      outline: none;
+    }
+
+    &-active {
+      color: $accent-color;
+    }
+
+    &-cta {
+      display: inline-block;
+      background: $accent-color;
+      color: white;
+      border-radius: 30px;
+      padding: 0.8rem 2rem;
+    
+      &:hover {
+        background: $accent-color;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba($accent-color, 0.3);
+      }
+
+      &:focus {
+        background: $accent-color;
+        color: white;
+        transform: scale(1.05);
+      }
+    }
+    
+  }
+}

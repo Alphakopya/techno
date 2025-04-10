@@ -1,0 +1,197 @@
+// Import variables (assuming you have a variables file)
+@import "../../../../sass/variables";
+
+// Navbar container
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: $navbar-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $navbar-height;
+  z-index: 1000;
+  transition: $transition;
+
+  &-sticky {
+    padding: 1rem 5%;
+    background: $navbar-bg-sticky;
+    box-shadow: $navbar-shadow;
+  }
+
+  &-brand {
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $primary-color;
+      text-decoration: none;
+      transition: color $transition;
+
+      &:hover,
+      &:focus {
+        color: $accent-color;
+        outline: none;
+      }
+    }
+  }
+
+  &-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: $primary-color;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &-menu {
+    &-desktop {
+      display: flex;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      position: absolute;
+      top: $navbar-height;
+      left: 0;
+      background: $navbar-bg-sticky;
+      box-shadow: $navbar-shadow;
+    }
+  }
+
+  &-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+    }
+  }
+
+  &-link {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: $transition;
+    text-decoration: none;
+    &:hover {
+      color: $accent-color;
+      outline: none;
+      text-decoration: none;
+    }
+
+    &-active {
+      color: $accent-color;
+    }
+  }
+
+  // Profile section styles
+  &-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .profile-icon {
+    width: 32px;
+    height: 32px;
+    background: #ccc;
+    border-radius: 50%;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    color: $primary-color;
+
+    .profile-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .profile-role {
+      font-size: 0.7rem;
+      color: #666;
+    }
+  }
+
+  .profile-dropdown {
+    background: none;
+    border: none;
+    color: $primary-color;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .profile-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: $navbar-bg-sticky;
+    box-shadow: $navbar-shadow;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    z-index: 1000;
+    min-width: 150px;
+  }
+
+  .dropdown-links {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  .dropdown-item {
+    padding: 0;
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 500;
+    transition: $transition;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: $accent-color;
+    }
+  }
+}

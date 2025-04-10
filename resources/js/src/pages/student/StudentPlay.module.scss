@@ -1,0 +1,205 @@
+@import '../../../../sass/variables';
+
+:local {
+        .studentPlay {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: 'Rajdhani', sans-serif;
+          color: #ece8e1;
+      
+          & .playContainer {
+            text-align: center;
+            padding: 40px;
+            width: 100%;
+            max-width: 1000px;
+          }
+      
+          & .title {
+            font-size: 36px;
+            font-weight: 600;
+            color: $accent-color;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 174, 0, 0.5);
+          }
+      
+          & .modeSelection {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            height: 500px;
+      
+            & .modeButton {
+              padding: 20px;
+              background: $primary-color;
+              color: #ece8e1;
+              font-size: 20px;
+              font-weight: 600;
+              text-transform: uppercase;
+              text-align: center;
+              width: 100%;
+              max-width: 300px;
+              letter-spacing: 1px;
+              border: 2px solid $primary-color;
+              border-radius: 8px;
+              cursor: pointer;
+              transition: all 0.2s ease;
+      
+              &.active {
+                background: $accent-color;
+                color: #fff;
+                border-color: $accent-color;
+                box-shadow: 0 0 8px rgba(255, 174, 0, 0.5);
+              }
+      
+              &:hover:not(.disabled) {
+                background: $primary-color;
+                color: $accent-color;
+              }
+      
+              &.disabled {
+                background: $primary-color;
+                color: #8b8d8f;
+                border-color: $primary-color;
+                cursor: not-allowed;
+                opacity: 0.6;
+      
+                & .comingSoon {
+                  white-space: nowrap;
+                  color: $accent-color;
+                  margin-left: 5px;
+                }
+              }
+            }
+          }
+      
+          & .queueWrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+      
+            & .queueStatus {
+              position: absolute;
+              bottom: 100%;
+              margin-bottom: 10px;
+              padding: 5px 15px;
+              background: #0f1419;
+              border: 1px solid $accent-color;
+              border-radius: 4px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              font-size: 14px;
+              color: $accent-color;
+      
+              & .spinner {
+                font-size: 16px;
+                animation: spin 1s linear infinite;
+              }
+            }
+      
+            & .queueButton {
+              display: inline-flex;
+              align-items: center;
+              padding: 15px 40px;
+              background: $accent-color;
+              color: #fff;
+              font-size: 18px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              border: 1px solid $accent-color;
+              border-radius: 4px;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              box-shadow: 0 0 10px rgba(255, 174, 0, 0.5);
+      
+              & .buttonIcon {
+                margin-right: 10px;
+                font-size: 22px;
+              }
+      
+              &:hover:not(:disabled) {
+                background: $primary-color;
+                color: $accent-color;
+              }
+      
+              &.cancelButton {
+                background: $primary-color;
+                color: $accent-color;
+                border-color: $primary-color;
+      
+                &:hover:not(:disabled) {
+                  background: $accent-color;
+                  color: #fff;
+                  border-color: $accent-color;
+                }
+              }
+      
+              &:disabled {
+                background: $primary-color;
+                color: #8b8d8f;
+                border-color: $primary-color;
+                cursor: not-allowed;
+                box-shadow: none;
+              }
+            }
+          }
+        }
+      
+        // Spinner animation
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      
+        // Mobile adjustments
+        @media (max-width: 768px) {
+          .studentPlay {
+            & .playContainer {
+              padding: 20px;
+              margin: 10px;
+            }
+      
+            & .title {
+              font-size: 28px;
+              margin-bottom: 20px;
+            }
+      
+            & .modeSelection {
+              flex-direction: column;
+              gap: 10px;
+              height: auto;
+      
+              & .modeButton {
+                padding: 15px;
+                font-size: 18px;
+                max-width: none;
+              }
+            }
+      
+            & .queueWrapper {
+              & .queueStatus {
+                padding: 4px 10px;
+                font-size: 12px;
+      
+                & .spinner {
+                  font-size: 14px;
+                }
+              }
+      
+              & .queueButton {
+                padding: 12px 30px;
+                font-size: 16px;
+      
+                & .buttonIcon {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
